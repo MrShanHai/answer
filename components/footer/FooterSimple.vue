@@ -85,22 +85,12 @@
 
 <script>
 import { defineComponent } from 'vue'
-import {
-  TwitterIcon,
-  LinkedinIcon,
-  GithubIcon
-} from '@heroicons/vue/outline'
 
 export default defineComponent({
   name: 'AppFooter',
   data() {
     return {
       email: '',
-      socials: [
-        { name: 'Twitter', href: '#', icon: TwitterIcon },
-        { name: 'LinkedIn', href: '#', icon: LinkedinIcon },
-        { name: 'GitHub', href: '#', icon: GithubIcon }
-      ],
       footerNavigation: [
         {
           name: 'Solutions',
