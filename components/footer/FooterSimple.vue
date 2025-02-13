@@ -47,22 +47,22 @@
         <!-- Newsletter -->
         <div class="space-y-4">
           <h3 class="text-sm font-semibold text-slate-900 dark:text-slate-100">
-            Subscribe
+            <!-- Subscribe -->
           </h3>
           <form @submit.prevent="handleSubscribe">
-            <input
+            <!-- <input
               v-model="email"
               type="email"
               required
               placeholder="Enter your email"
-              class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 focus:ring-2 focus:ring-indigo-500"
-            />
-            <button
+              class="w-full px-4 py-2 rounded-lg border border-slate-300 dark:border-slate-700 focus:ring-2 focus:ring-indigo-500" -->
+            <!-- /> -->
+            <!-- <button
               type="submit"
               class="mt-2 w-full bg-indigo-600 text-white px-4 py-2 rounded-lg hover:bg-indigo-700 transition-colors"
             >
-              Subscribe
-            </button>
+              <-- Subscribe -->
+            <!-- </button> -->
           </form>
         </div>
       </div>
@@ -92,30 +92,30 @@ export default defineComponent({
     return {
       email: '',
       footerNavigation: [
-        {
-          name: 'Solutions',
-          links: [
-            { name: 'AI Content Generator', to: '/solutions/content' },
-            { name: 'Campaign Analytics', to: '/solutions/analytics' },
-            { name: 'SEO Optimizer', to: '/solutions/seo' }
-          ]
-        },
-        {
-          name: 'Company',
-          links: [
-            { name: 'About Us', to: '/about' },
-            { name: 'Careers', to: '/careers' },
-            { name: 'Contact', to: '/contact' }
-          ]
-        },
-        {
-          name: 'Legal',
-          links: [
-            { name: 'Privacy', to: '/privacy' },
-            { name: 'Terms', to: '/terms' },
-            { name: 'Cookie Policy', to: '/cookies' }
-          ]
-        }
+        // {
+        //   name: 'Solutions',
+        //   links: [
+        //     { name: 'AI Content Generator', to: '/solutions/content' },
+        //     { name: 'Campaign Analytics', to: '/solutions/analytics' },
+        //     { name: 'SEO Optimizer', to: '/solutions/seo' }
+        //   ]
+        // },
+        // {
+        //   name: 'Company',
+        //   links: [
+        //     { name: 'About Us', to: '/about' },
+        //     { name: 'Careers', to: '/careers' },
+        //     { name: 'Contact', to: '/contact' }
+        //   ]
+        // },
+        // {
+        //   name: 'Legal',
+        //   links: [
+        //     { name: 'Privacy', to: '/privacy' },
+        //     { name: 'Terms', to: '/terms' },
+        //     { name: 'Cookie Policy', to: '/cookies' }
+        //   ]
+        // }
       ]
     }
   },
