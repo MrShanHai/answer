@@ -1,23 +1,18 @@
 <template>
-  <div class="flex">
-    <svg
-      xmlns="http://www.w3.org/2000/svg"
-      class="icon icon-tabler icon-tabler-brand-tabler"
-      width="24"
-      height="24"
-      viewBox="0 0 24 24"
-      stroke-width="2"
-      stroke="currentColor"
-      fill="none"
-      stroke-linecap="round"
-      stroke-linejoin="round"
-    >
-      <path stroke="none" d="M0 0h24v24H0z" fill="none"></path>
-      <path d="M8 9l3 3l-3 3"></path>
-      <line x1="13" y1="15" x2="16" y2="15"></line>
-      <rect x="4" y="4" width="16" height="16" rx="4"></rect>
+  <div class="flex items-center space-x-2">
+    <!-- 自定义AI芯片图标 -->
+    <svg class="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400" viewBox="0 0 32 32" fill="none">
+      <path d="M16 2L2 16L16 30L30 16L16 2Z" fill="currentColor"/>
+      <circle cx="16" cy="16" r="2" fill="#FFFFFF"/>
+      <path d="M8 8L16 16M16 16L24 24M16 16L24 8M16 16L8 24" 
+            stroke="#FFFFFF" stroke-width="1.5"/>
     </svg>
-    <span class="ml-2">Your logo</span>
+    
+    <!-- 文字标识 -->
+    <span class="text-xl font-semibold">
+      <span class="text-slate-800 dark:text-slate-200">AI</span>
+      <span class="text-indigo-600 dark:text-indigo-400">AnswerGen</span>
+    </span>
   </div>
 </template>
 
