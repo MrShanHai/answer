@@ -6,43 +6,60 @@
     >
       <headers-centered />
 
-      <sections-testimonial-centered />
-      <sections-testimonial-grid />
+      <sections-testimonial-centered 
+        title="AI Answer Generator 正在改变内容创作方式"
+        :testimonials="[
+          { 
+            text: '生成速度比人工撰写快5倍，广告点击率提升42%',
+            author: '某电商品牌营销总监',
+            role: '双11活动案例'
+          },
+          {
+            text: '多语言生成功能帮助我们快速拓展海外市场',
+            author: '跨境电商运营团队',
+            role: '国际化营销案例'
+          }
+        ]"
+      />
+
       <sections-feature-simple
-        name="Customization"
-        title="Extend it, tweak it, change it."
-        :icon="require('~/assets/media/features/customization.png')"
+        name="智能生成"
+        title="AI驱动的内容生成引擎"
+        :icon="require('/assets/media/features/ai-core.png')"
       >
         <template #description>
-          <p>
-            We include an expertly crafted set of defaults out-of-the-box, but
-            literally everything can be customized — from the color palette to
-            the spacing scale to the box shadows to the mouse cursor.
+          <p class="space-y-4">
+            基于GPT-4架构的生成模型，支持：
+            <span class="text-indigo-500 font-medium">广告文案</span>、
+            <span class="text-indigo-500 font-medium">社交媒体内容</span>、
+            <span class="text-indigo-500 font-medium">邮件模板</span>等多场景内容生成
           </p>
-          <p>
-            Use nuxt.config.js file to adapt your SEO, tailwind.config.js to
-            craft your own design system.
-          </p>
+          <ul class="list-disc pl-6 mt-4 space-y-2">
+            <li>实时生成速度：平均响应时间 &lt; 2秒</li>
+            <li>支持15+种语言内容生成</li>
+            <li>内置营销话术优化算法</li>
+          </ul>
         </template>
       </sections-feature-simple>
+
       <sections-feature-simple
-        name="Dark mode"
-        title="Now with Dark Mode."
-        :icon="require('~/assets/media/features/dark.mode.png')"
+        name="无缝对接"
+        title="主流营销平台深度集成"
+        :icon="require('/assets/media/features/customization.png')"
+        reverse
       >
         <template #description>
-          <p class="mt-4 max-w-3xl space-y-6">
-            Don’t want to be one of those websites that blinds people when they
-            open it on their phone at 2am? Enable dark mode in your
-            configuration file then throw
-            <code
-              class="font-mono text-slate-900 font-medium dark:text-slate-200"
-              >dark:</code
-            >
-            in front of any color utility to apply it when dark mode is active.
-            Works for background colors, text colors, border colors, and even
-            gradients.
-          </p>
+          <div class="grid grid-cols-2 gap-4 mt-6">
+            <div class="flex items-center space-x-2">
+              <img src="/assets/media/platforms/google-ads.png" class="h-8" alt="Google Ads">
+              <span class="text-gray-600">Google Ads</span>
+            </div>
+            <div class="flex items-center space-x-2">
+              <img src="/assets/media/platforms/facebook.png" class="h-8" alt="Facebook">
+              <span class="text-gray-600">Meta平台</span>
+            </div>
+            <!-- 更多平台... -->
+          </div>
         </template>
       </sections-feature-simple>
     </div>
@@ -53,5 +70,17 @@
 <script>
 export default {
   name: 'IndexPage',
+  head() {
+    return {
+      title: this.$t('seo.title'),
+      meta: [
+        { 
+          hid: 'description', 
+          name: 'description',
+          content: this.$t('seo.description') 
+        }
+      ]
+    }
+  }
 }
 </script>

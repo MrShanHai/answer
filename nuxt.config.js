@@ -91,6 +91,13 @@ export default {
   modules: [
     // https://go.nuxtjs.dev/pwa
     '@nuxtjs/pwa',
+    ['@nuxtjs/i18n', {
+      locales: ['en', 'zh'],
+      defaultLocale: 'en',
+      vueI18n: {
+        fallbackLocale: 'en'
+      }
+    }]
   ],
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -103,6 +110,17 @@ export default {
   // colorMode config: https://color-mode.nuxtjs.org/
   colorMode: {
     classSuffix: '',
+  },
+
+  i18n: {
+    locales: [
+      { code: 'en', iso: 'en-US', file: 'en-US.js' },
+      { code: 'zh', iso: 'zh-CN', file: 'zh-CN.js' }
+    ],
+    defaultLocale: 'en',
+    vueI18n: {
+      fallbackLocale: 'en'
+    }
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
