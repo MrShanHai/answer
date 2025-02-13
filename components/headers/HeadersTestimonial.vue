@@ -57,7 +57,7 @@
             <div class="flex items-start">
               <div class="flex-shrink-0">
                 <img 
-                  src="/assets/media/cases/global-beauty.png" 
+                  src="/assets/media/cases/global-beauty.jpg" 
                   alt="Global beauty brand product display" 
                   class="h-16 w-16 rounded-lg object-cover"
                   loading="lazy"
