@@ -37,26 +37,33 @@
         </p>
       </section>
       <div class="mt-8 max-w-3xl mx-auto">
-        <div class="relative group transform transition-all duration-300 hover:scale-[1.01]">
-          <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-xl blur-[20px] opacity-50 group-hover:opacity-70 transition"></div>
-          <div class="relative flex gap-2">
-            <input
-              id="question-input"
-              v-model="question"
-              type="text"
-              name="question"
-              required
-              aria-label="Enter marketing question"
-              placeholder="How to write high-converting Facebook ad copy for Gen Z?"
-              class="flex-1 h-14 px-6 text-lg border-2 border-indigo-100/50 rounded-xl focus:outline-none focus:border-indigo-300 bg-white/80 backdrop-blur-sm shadow-sm placeholder-indigo-300/60 focus:ring-2 focus:ring-indigo-100 transition-all"
-            />
-            <button
-              type="submit"
-              class="w-32 sm:w-40 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-6 py-3 rounded-xl hover:shadow-lg hover:-translate-y-0.5 transition-all whitespace-nowrap"
-            >
-              <SparklesIcon class="w-5 h-5 shrink-0 mr-2" />
-              <span class="truncate">Generate</span>
-            </button>
+        <div class="ml-8 md:ml-12">
+          <div class="relative group transform transition-all duration-300 hover:scale-[1.01]">
+            <div class="absolute -inset-1 bg-gradient-to-r from-indigo-600/20 to-purple-600/20 rounded-xl blur-[20px] opacity-50 group-hover:opacity-70 transition"></div>
+            <div class="relative flex w-full min-w-[320px]">
+              <input
+                id="question-input"
+                v-model="question"
+                type="text"
+                name="question"
+                required
+                aria-label="Enter marketing question"
+                placeholder="How to write high-converting Facebook ad copy for Gen Z?"
+                class="flex-1 min-w-0 h-14 pl-6 pr-32 sm:pl-8 sm:pr-36 text-lg border-2 border-indigo-100/50 rounded-l-xl focus:border-indigo-200/80 focus:ring-0 bg-white/50 backdrop-blur-sm placeholder-indigo-300/70 box-border"
+              />
+              <button
+                type="submit"
+                class="h-14 w-32 sm:w-36 flex-shrink-0 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-4 py-3 rounded-r-xl hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-0"
+              >
+                <div class="flex items-center space-x-2">
+                  <SparklesIcon class="w-5 h-5" />
+                  <div class="text-left">
+                    <div class="text-sm sm:text-base leading-tight -translate-x-[2px]">Generate</div>
+                    <div class="text-[10px] opacity-80 leading-tight">AI Analysis</div>
+                  </div>
+                </div>
+              </button>
+            </div>
           </div>
         </div>
         <div class="mt-4 flex flex-wrap gap-2 justify-center">
@@ -199,5 +206,35 @@ input:focus {
 }
 .flex-1 {
   flex: 1 1 0%;
+}
+.pr-32 {
+  padding-right: 0rem;
+}
+.flex-col {
+  flex-direction: column;
+}
+.items-center {
+  align-items: center;
+}
+.justify-center {
+  justify-content: center;
+}
+.text-center {
+  text-align: center;
+}
+.space-y-1 {
+  space-y: 0.25rem; /* 4px */
+}
+.space-x-2 {
+  space-x: 0.5rem; /* 8px */
+}
+.shrink-0 {
+  /* 防止图标被压缩 */
+}
+.translate-x-8 {
+  /* 位移不会改变元素实际占位空间 */
+}
+.pr-24 {
+  padding-right: 96px;
 }
 </style>
