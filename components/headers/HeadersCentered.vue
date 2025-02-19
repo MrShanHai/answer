@@ -53,13 +53,29 @@
               />
               <button
                 @click="setQuickPrompt()"
-                class="h-14 w-32 sm:w-36 flex-shrink-0 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-4 py-3 rounded-r-xl hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-0"
+                :disabled="loading"
+                class="h-14 w-32 sm:w-36 flex-shrink-0 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-4 py-3 rounded-r-xl transition-all border-l-0"
+                :class="{
+                  'hover:shadow-lg hover:-translate-y-0.5': !loading,
+                  'opacity-80 cursor-not-allowed': loading
+                }"
               >
-                <div class="flex items-center space-x-2">
-                  <SparklesIcon class="w-5 h-5" />
-                  <div class="text-left">
-                    <div class="text-sm sm:text-base leading-tight -translate-x-[2px]">Generate</div>
-                    <div class="text-[10px] opacity-80 leading-tight">AI Analysis</div>
+                <div class="flex items-center space-x-2 relative">
+                  <!-- 加载动画 -->
+                  <div v-if="loading" class="absolute inset-0 flex items-center justify-center">
+                    <svg class="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                      <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                      <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    </svg>
+                  </div>
+                  
+                  <!-- 正常状态内容 -->
+                  <div class="flex items-center space-x-2 transition-opacity" :class="{ 'opacity-0': loading }">
+                    <SparklesIcon class="w-5 h-5" />
+                    <div class="text-left">
+                      <div class="text-sm sm:text-base leading-tight -translate-x-[2px]">Generate</div>
+                      <div class="text-[10px] opacity-80 leading-tight">AI Analysis</div>
+                    </div>
                   </div>
                 </div>
               </button>
@@ -108,7 +124,24 @@
             </button>
           </div>
           <div class="text-gray-700 leading-relaxed whitespace-pre-wrap text-sm">
-            {{ resultContent }}
+            
+            <!-- 内容部分 -->
+            <div class="pl-6 border-l-2 border-purple-100">
+              <div class="prose prose-sm text-gray-600">
+                {{ resultContent }}
+              </div>
+              
+              <!-- 操作按钮 -->
+              <div class="mt-4 -ml-2">
+                <button 
+                  @click="copyToClipboard"
+                  class="text-purple-500 hover:text-purple-700 text-xs flex items-center"
+                >
+                  <DocumentDuplicateIcon class="w-4 h-4 mr-1" />
+                  <span>Copy to Clipboard</span>
+                </button>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -156,7 +189,8 @@ export default {
         'Email Subject Line', 
         'Product Description',
         'Social Media Post'
-      ]
+      ],
+      loading: false
     }
   },
   methods: {
@@ -164,31 +198,28 @@ export default {
       console.log('setQuickPrompt')
       this.handleQuestionSubmit()
     },
-    handleQuestionSubmit() {
-      console.log('this.question=====', this.question)
-      if (this.question.trim()) {
-        try {
-          console.log('this.questiodddn=====', this.question)
-           const tt =  {"model":"deepseek-ai/DeepSeek-V3","messages":[{"role":"user","content": this.question}],"stream":false,"max_tokens":512,"stop":["null"],"temperature":0.7,"top_p":0.7,"top_k":50,"frequency_penalty":0.5,"n":1,"response_format":{"type":"text"},"tools":[{"type":"function","function":{"description":"<string>","name":"<string>","parameters":{},"strict":false}}]}
+    async handleQuestionSubmit() {
+      if (this.loading) return;
+      
+      this.loading = true;
+      try {
+        console.log('this.questiodddn=====', this.question)
+         const tt =  {"model":"Qwen/Qwen2.5-7B-Instruct","messages":[{"role":"user","content": this.question}],"stream":false,"max_tokens":512,"stop":["null"],"temperature":0.7,"top_p":0.7,"top_k":50,"frequency_penalty":0.5,"n":1,"response_format":{"type":"text"},"tools":[{"type":"function","function":{"description":"<string>","name":"<string>","parameters":{},"strict":false}}]}
 
-          const options = {
-              method: 'POST',
-              headers: {Authorization: 'Bearer sk-driiienqpcxhxzmxziwtgvqbivkzugcprjmbleflqxunlcii', 'Content-Type': 'application/json'},
-              body: JSON.stringify(tt),
-            }
-            fetch('https://api.siliconflow.cn/v1/chat/completions', options)
-              .then(response => response.json())
-              .then(res => { 
-                console.log('response====', res)
-                this.resultContent = res.choices[0].message.content
-                 console.log('resultContentresultContentresultContent====', this.resultContent)
-              })
-              .catch(err => console.error(err));
-        // this.$store.commit('SET_ANSWER', response.answer)
-          // this.$router.push('/answer')
-        } catch (error) {
-          // console.error('Error:', error)
-        }
+        const options = {
+            method: 'POST',
+            headers: {Authorization: 'Bearer sk-driiienqpcxhxzmxziwtgvqbivkzugcprjmbleflqxunlcii', 'Content-Type': 'application/json'},
+            body: JSON.stringify(tt),
+          }
+          const response = await fetch('https://api.siliconflow.cn/v1/chat/completions', options)
+          const res = await response.json()
+          console.log('response====', res)
+          this.resultContent = res.choices[0].message.content
+           console.log('resultContentresultContentresultContent====', this.resultContent)
+      } catch (error) {
+        // console.error('Error:', error)
+      } finally {
+        this.loading = false;
       }
     },
     copyToClipboard() {
