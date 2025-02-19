@@ -6,9 +6,17 @@ export default {
   target: 'static',
   // https://nuxtjs.org/deployments/github-pages/
   router: {
-    base: `/${process.env.npm_package_name}` || '',
+    base: process.env.NODE_ENV === 'production' ? '/landing-nuxt-template/' : '/'
   },
-
+  build: {
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/landing-nuxt-template/_nuxt/'
+      : '/_nuxt/'
+  },
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
+  },
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
     title: 'Landing NuxtJS template',
@@ -128,7 +136,10 @@ export default {
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     transpile: ['v-tooltip'],
-    postcss: null
+    postcss: null,
+    publicPath: process.env.NODE_ENV === 'production'
+      ? '/landing-nuxt-template/_nuxt/'
+      : '/_nuxt/'
   },
 
   generate: {
@@ -146,5 +157,10 @@ export default {
   tailwindcss: {
     configPath: '~/tailwind.config.js',
     exposeConfig: true
+  },
+
+  server: {
+    port: 3000,
+    host: '0.0.0.0'
   }
 }
