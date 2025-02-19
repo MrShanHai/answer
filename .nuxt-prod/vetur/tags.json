@@ -1,0 +1,44 @@
+{
+  "Modal": {
+    "description": "Auto imported from components/global/Modal.vue"
+  },
+  "AppLogo": {
+    "description": "Auto imported from components/AppLogo.vue"
+  },
+  "LanguageSwitcher": {
+    "description": "Auto imported from components/LanguageSwitcher.vue"
+  },
+  "CommonGlobalModal": {
+    "description": "Auto imported from components/Common/GlobalModal.vue"
+  },
+  "FooterSimple": {
+    "description": "Auto imported from components/footer/FooterSimple.vue"
+  },
+  "AnalysisButton": {
+    "description": "Auto imported from components/analysis/AnalysisButton.vue"
+  },
+  "HeadersCentered": {
+    "description": "Auto imported from components/headers/HeadersCentered.vue"
+  },
+  "HeadersTestimonial": {
+    "description": "Auto imported from components/headers/HeadersTestimonial.vue"
+  },
+  "MarketingLiveDemo": {
+    "description": "Auto imported from components/marketing/LiveDemo.vue"
+  },
+  "NavigationSimple": {
+    "description": "Auto imported from components/navigation/NavigationSimple.vue"
+  },
+  "SectionsFeatureSimple": {
+    "description": "Auto imported from components/sections/FeatureSimple.vue"
+  },
+  "SectionsTestimonialCentered": {
+    "description": "Auto imported from components/sections/TestimonialCentered.vue"
+  },
+  "SectionsTestimonialGrid": {
+    "description": "Auto imported from components/sections/TestimonialGrid.vue"
+  },
+  "TestimonialsCard": {
+    "description": "Auto imported from components/testimonials/TestimonialsCard.vue"
+  }
+}

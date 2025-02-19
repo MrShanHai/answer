@@ -1,0 +1,11 @@
+# 添加以下排除规则
+**/*.log
+**/*.map
+**/test
+**/tests
+**/docs
+**/examples
+**/coverage
+**/docker
+**/scripts
+**/benchmarks 

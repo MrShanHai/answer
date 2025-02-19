@@ -1,0 +1,86 @@
+[
+  {
+    "name": "blog___en",
+    "path": "/blog",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/index.vue",
+    "chunkName": "pages/blog/index"
+  },
+  {
+    "name": "generate-analysis___en",
+    "path": "/generate-analysis",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/generate-analysis.vue",
+    "chunkName": "pages/generate-analysis"
+  },
+  {
+    "name": "index___zh",
+    "path": "/zh",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/index.vue",
+    "chunkName": "pages/index"
+  },
+  {
+    "name": "blog-ai-answer-generator___en",
+    "path": "/blog/ai-answer-generator",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/ai-answer-generator.vue",
+    "chunkName": "pages/blog/ai-answer-generator"
+  },
+  {
+    "name": "blog-ai-marketing___en",
+    "path": "/blog/ai-marketing",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/ai-marketing.vue",
+    "chunkName": "pages/blog/ai-marketing"
+  },
+  {
+    "name": "blog-ai-service___en",
+    "path": "/blog/ai-service",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/ai-service.vue",
+    "chunkName": "pages/blog/ai-service"
+  },
+  {
+    "name": "blog___zh",
+    "path": "/zh/blog",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/index.vue",
+    "chunkName": "pages/blog/index"
+  },
+  {
+    "name": "generate-analysis___zh",
+    "path": "/zh/generate-analysis",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/generate-analysis.vue",
+    "chunkName": "pages/generate-analysis"
+  },
+  {
+    "name": "blog-ai-answer-generator___zh",
+    "path": "/zh/blog/ai-answer-generator",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/ai-answer-generator.vue",
+    "chunkName": "pages/blog/ai-answer-generator"
+  },
+  {
+    "name": "blog-ai-marketing___zh",
+    "path": "/zh/blog/ai-marketing",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/ai-marketing.vue",
+    "chunkName": "pages/blog/ai-marketing"
+  },
+  {
+    "name": "blog-ai-service___zh",
+    "path": "/zh/blog/ai-service",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/ai-service.vue",
+    "chunkName": "pages/blog/ai-service"
+  },
+  {
+    "name": "index___en",
+    "path": "/",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/index.vue",
+    "chunkName": "pages/index"
+  },
+  {
+    "name": "blog-slug___zh",
+    "path": "/zh/blog/:slug",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug"
+  },
+  {
+    "name": "blog-slug___en",
+    "path": "/blog/:slug",
+    "component": "/Users/mac/Desktop/freedom/landing-nuxt-template/pages/blog/_slug.vue",
+    "chunkName": "pages/blog/_slug"
+  }
+]
