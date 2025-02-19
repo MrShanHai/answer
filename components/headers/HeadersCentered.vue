@@ -76,9 +76,42 @@
           </button>
         </div>
       </div>
-      <div v-if="resultContent">{{ 
-        resultContent
-       }}</div>
+      <div 
+        v-if="resultContent || error"
+        class="mt-6 p-5 rounded-lg border bg-white shadow-sm transition-all"
+        :class="{
+          'border-red-100 bg-red-50': error,
+          'border-purple-100': !error
+        }"
+      >
+        <!-- 错误状态 -->
+        <div v-if="error" class="flex items-center space-x-2 text-red-500 text-sm">
+          <ExclamationCircleIcon class="w-4 h-4 shrink-0" />
+          <span>{{ error }}</span>
+        </div>
+        
+        <!-- 正常结果 -->
+        <div v-else class="group">
+          <div class="flex justify-between items-start mb-4 p-3 -mx-3 bg-gradient-to-r from-purple-50 to-indigo-50 rounded-lg">
+            <div class="flex items-center space-x-2">
+              <SparklesIcon class="w-5 h-5 text-purple-600" />
+              <h3 class="text-lg font-bold bg-gradient-to-r from-purple-600 to-indigo-600 bg-clip-text text-transparent">
+                AI Recommendations
+              </h3>
+            </div>
+            <button 
+              @click="copyToClipboard"
+              class="text-purple-500 hover:text-purple-700 transition-colors"
+              title="Copy"
+            >
+              <DocumentDuplicateIcon class="w-5 h-5" />
+            </button>
+          </div>
+          <div class="text-gray-700 leading-relaxed whitespace-pre-wrap text-sm">
+            {{ resultContent }}
+          </div>
+        </div>
+      </div>
       <div class="mt-12 text-center space-y-4">
         <p class="text-sm text-gray-400/80">Trusted by innovative teams at</p>
         <div class="flex flex-wrap justify-center gap-6 opacity-90 hover:opacity-100 transition-opacity">
@@ -117,6 +150,7 @@ export default {
     return {
       question: '',
       resultContent: '',
+      error: '',
       quickTypes: [
         'Facebook Ad Copy',
         'Email Subject Line', 
@@ -156,6 +190,9 @@ export default {
           // console.error('Error:', error)
         }
       }
+    },
+    copyToClipboard() {
+      // Implementation of copyToClipboard method
     }
   },
   head() {
