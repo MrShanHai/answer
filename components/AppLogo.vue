@@ -1,5 +1,9 @@
 <template>
-  <div class="flex items-center space-x-2">
+  <nuxt-link 
+    to="/"
+    class="flex items-center space-x-2"
+    title="Home"
+  >
     <!-- 自定义AI芯片图标 -->
     <svg class="w-6 h-6 sm:w-8 sm:h-8 text-indigo-600 dark:text-indigo-400" viewBox="0 0 32 32" fill="none">
       <path d="M16 2L2 16L16 30L30 16L16 2Z" fill="currentColor"/>
@@ -11,9 +15,11 @@
     <!-- 文字标识 -->
     <span class="text-xl font-semibold">
       <span class="text-slate-800 dark:text-slate-200">AI</span>
-      <span class="text-indigo-600 dark:text-indigo-400">AnswerGen</span>
+      <span class="text-indigo-600 dark:text-indigo-400 hover:text-indigo-700 transition-colors">
+        AnswerGen
+      </span>
     </span>
-  </div>
+  </nuxt-link>
 </template>
 
 <script>
