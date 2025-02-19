@@ -53,18 +53,17 @@
                 style="min-width: 160px; justify-content: center"
                 title="Support our development work"
               >
-                <div class="flex items-center">
-                  <CoffeeIcon class="w-5 h-5 mr-2" />
-                  <span>Buy me a coffee</span>
-                </div>
+                <span>Buy me a coffee</span>
               </a>
             </li>
             <li>
-              <a
-                class="hover:text-indigo-500 dark:hover:text-indigo-400"
-                href="#"
-                >Blog</a
+              <nuxt-link
+                to="/blog"
+                class="px-4 py-2 text-sm font-medium text-slate-700 hover:text-indigo-500 dark:text-slate-200 dark:hover:text-indigo-400 transition-colors"
+                title="Visit our technical blog"
               >
+                Blog
+              </nuxt-link>
             </li>
           </ul>
         </nav>

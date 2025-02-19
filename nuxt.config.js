@@ -129,4 +129,12 @@ export default {
   build: {
     transpile: ['v-tooltip']
   },
+
+  generate: {
+    routes: [
+      '/blog',
+      '/blog/ai-marketing',
+      '/blog/ai-service'
+    ]
+  }
 }
