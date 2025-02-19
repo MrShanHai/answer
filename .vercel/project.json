@@ -1,0 +1,6 @@
+{
+    "settings": {
+        "installCommand": "npm install --force",
+        "nodeVersion": "18.x"
+    }
+}
