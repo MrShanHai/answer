@@ -44,19 +44,20 @@
       <div class="hidden md:flex items-center">
         <nav>
           <ul class="flex items-center space-x-8">
-            <li>
+            <li class="mx-4">
               <a
-                class="hover:text-indigo-500 dark:hover:text-indigo-400"
-                href="#"
-                >Docs</a
+                href="https://ko-fi.com/buling"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center px-6 py-3 text-base font-medium text-white bg-gradient-to-r from-indigo-600 to-purple-500 rounded-lg shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-105 hover:-translate-y-1"
+                style="min-width: 160px; justify-content: center"
+                title="Support our development work"
               >
-            </li>
-            <li>
-              <a
-                href="#"
-                class="hover:text-indigo-500 dark:hover:text-indigo-400"
-                >Pricing</a
-              >
+                <div class="flex items-center">
+                  <CoffeeIcon class="w-5 h-5 mr-2" />
+                  <span>Buy me a coffee</span>
+                </div>
+              </a>
             </li>
             <li>
               <a
