@@ -83,14 +83,10 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/eslint
     '@nuxtjs/eslint-module',
-    // https://go.nuxtjs.dev/tailwindcss
-    '@nuxtjs/tailwindcss',
-    // https://color-mode.nuxtjs.org/
-    '@nuxtjs/color-mode',
-    // https://github.com/nuxt/postcss8
     '@nuxt/postcss8',
+    '@nuxtjs/tailwindcss',
+    '@nuxtjs/color-mode',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
@@ -131,7 +127,8 @@ export default {
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
-    transpile: ['v-tooltip']
+    transpile: ['v-tooltip'],
+    postcss: null
   },
 
   generate: {
@@ -144,5 +141,10 @@ export default {
 
   publicRuntimeConfig: {
     apiKey: process.env.API_KEY
+  },
+
+  tailwindcss: {
+    configPath: '~/tailwind.config.js',
+    exposeConfig: true
   }
 }
