@@ -52,7 +52,7 @@
                 class="flex-1 min-w-0 h-14 pl-6 pr-32 sm:pl-8 sm:pr-36 text-lg border-2 border-indigo-100/50 rounded-l-xl focus:border-indigo-200/80 focus:ring-0 bg-white/50 backdrop-blur-sm placeholder-indigo-300/70 box-border"
               />
               <button
-                type="submit"
+                @click="setQuickPrompt()"
                 class="h-14 w-32 sm:w-36 flex-shrink-0 flex items-center justify-center bg-gradient-to-r from-indigo-600 to-purple-600 text-white font-semibold px-4 py-3 rounded-r-xl hover:shadow-lg hover:-translate-y-0.5 transition-all border-l-0"
               >
                 <div class="flex items-center space-x-2">
@@ -68,7 +68,6 @@
         </div>
         <div class="mt-4 flex flex-wrap gap-2 justify-center">
           <button 
-            @click="setQuickPrompt(type)"
             v-for="type in quickTypes"
             :key="type"
             class="px-3 py-1.5 bg-indigo-50/50 text-indigo-700 rounded-lg text-sm hover:bg-indigo-100/80 transition-colors border border-indigo-100/30 hover:border-indigo-200/50"
@@ -77,6 +76,9 @@
           </button>
         </div>
       </div>
+      <div v-if="resultContent">{{ 
+        resultContent
+       }}</div>
       <div class="mt-12 text-center space-y-4">
         <p class="text-sm text-gray-400/80">Trusted by innovative teams at</p>
         <div class="flex flex-wrap justify-center gap-6 opacity-90 hover:opacity-100 transition-opacity">
@@ -114,6 +116,7 @@ export default {
   data() {
     return {
       question: '',
+      resultContent: '',
       quickTypes: [
         'Facebook Ad Copy',
         'Email Subject Line', 
@@ -124,25 +127,31 @@ export default {
   },
   methods: {
     setQuickPrompt(type) {
-      const prompts = {
-        'Facebook Ad Copy': 'Write a Facebook ad for [product] targeting [audience] that highlights [key benefit]',
-        'Email Subject Line': 'Create an email subject line for [purpose] that achieves [desired action]',
-      }
-      this.question = prompts[type] || ''
+      console.log('setQuickPrompt')
+      this.handleQuestionSubmit()
     },
-    async handleQuestionSubmit() {
+    handleQuestionSubmit() {
+      console.log('this.question=====', this.question)
       if (this.question.trim()) {
-        this.$gtag.event('question_submit', {
-          event_category: 'engagement',
-          event_label: 'header_question'
-        })
-        
         try {
-          const response = await this.$axios.$post('/api/generate', {
-            question: this.question
-          })
-          this.$store.commit('SET_ANSWER', response.answer)
-          this.$router.push('/answer')
+          console.log('this.questiodddn=====', this.question)
+           const tt =  {"model":"deepseek-ai/DeepSeek-V3","messages":[{"role":"user","content": this.question}],"stream":false,"max_tokens":512,"stop":["null"],"temperature":0.7,"top_p":0.7,"top_k":50,"frequency_penalty":0.5,"n":1,"response_format":{"type":"text"},"tools":[{"type":"function","function":{"description":"<string>","name":"<string>","parameters":{},"strict":false}}]}
+
+          const options = {
+              method: 'POST',
+              headers: {Authorization: 'Bearer sk-driiienqpcxhxzmxziwtgvqbivkzugcprjmbleflqxunlcii', 'Content-Type': 'application/json'},
+              body: JSON.stringify(tt),
+            }
+            fetch('https://api.siliconflow.cn/v1/chat/completions', options)
+              .then(response => response.json())
+              .then(res => { 
+                console.log('response====', res)
+                this.resultContent = res.choices[0].message.content
+                 console.log('resultContentresultContentresultContent====', this.resultContent)
+              })
+              .catch(err => console.error(err));
+        // this.$store.commit('SET_ANSWER', response.answer)
+          // this.$router.push('/answer')
         } catch (error) {
           // console.error('Error:', error)
         }
